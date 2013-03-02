@@ -11,7 +11,7 @@
 
     if ($config_use_fbcomments == 'yes')
     {
-        echo '<div class="fb-comments" data-href="'.$config_http_script_dir.'/router.php?subaction=showfull&amp;id='.$id.'" data-num-posts="'.$config_fb_comments.'" data-width="'.$config_fb_box_width.'" data-colorscheme="'.$config_fbcomments_color.'"></div>';
+        echo '<div class="fb-comments" data-href="'.$config_http_script_dir.'/router.php?subaction=showfull&amp;id='.$id.'" data-num-posts="'.$config_fb_comments.'" data-width="'.$config_fb_box_width.'"></div>';
     }
 
     $all_comments = file( $comm_file );
@@ -106,11 +106,7 @@
     if ($comm_start_from)
     {
         $prev = $comm_start_from - $comm_per_page;
-//        $URL = $PHP_SELF . build_uri('subaction,comm_start_from,id,ucat', array('showcomments', $prev));
-        if ($archive)
-            $URL = RWU( 'archcommpage', $PHP_SELF . build_uri('subaction,comm_start_from,title,archive,id,ucat', array('showcomments', $prev, titleToUrl($news_arr[NEW_TITLE]))) );
-        else
-            $URL = RWU( 'commpage', $PHP_SELF . build_uri('subaction,comm_start_from,title,id,ucat', array('showcomments', $prev,titleToUrl($news_arr[NEW_TITLE]))) );
+        $URL = $PHP_SELF . build_uri('subaction,comm_start_from,id,ucat', array('showcomments', $prev));
         $prev_next_msg = preg_replace("'\[prev-link\](.*?)\[/prev-link\]'si", "<a href=\"{$URL}\">\\1</a>", $prev_next_msg);
     }
     else
@@ -130,11 +126,7 @@
         {
             if ($pages_start_from != $comm_start_from)
             {
-//                $URL = $PHP_SELF . build_uri('subaction,comm_start_from,archive,id,ucat', array('showcomments', $pages_start_from));
-                if ($archive)
-                    $URL = RWU( 'archcommpage', $PHP_SELF . build_uri('subaction,comm_start_from,title,archive,id,ucat', array('showcomments', $pages_start_from,titleToUrl($news_arr[NEW_TITLE]))) );
-                else
-                    $URL = RWU( 'commpage', $PHP_SELF . build_uri('subaction,comm_start_from,title,id,ucat', array('showcomments', $pages_start_from,titleToUrl($news_arr[NEW_TITLE]))) );
+                $URL = $PHP_SELF . build_uri('subaction,comm_start_from,archive,id,ucat', array('showcomments', $pages_start_from));
                 $pages .= '<a href="'.$URL.'">'.$j.'</a> ';
             }
             else
@@ -151,11 +143,7 @@
     // Next link
     if ($comm_per_page < $total_comments and $comment_number < $total_comments)
     {
-//        $URL = $PHP_SELF . build_uri('subaction,comm_start_from,archive,id,ucat', array('showcomments', $comment_number));
-        if($archive)
-            $URL = RWU( 'archcommpage', $PHP_SELF . build_uri('subaction,comm_start_from,title,archive,id,ucat', array('showcomments', $comment_number,titleToUrl($news_arr[NEW_TITLE]))) );
-        else
-            $URL = RWU( 'commpage', $PHP_SELF . build_uri('subaction,comm_start_from,title,id,ucat', array('showcomments', $comment_number,titleToUrl($news_arr[NEW_TITLE]))) );
+        $URL = $PHP_SELF . build_uri('subaction,comm_start_from,archive,id,ucat', array('showcomments', $comment_number));
         $prev_next_msg = preg_replace("'\[next-link\](.*?)\[/next-link\]'si", "<a href=\"$URL\">\\1</a>", $prev_next_msg);
     }
     else

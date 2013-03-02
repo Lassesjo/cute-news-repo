@@ -69,8 +69,7 @@
                 $last_news_arr      = explode("|", $news_lines[0]);
                 $first_timestamp    = $first_news_arr[0];
                 $last_timestamp     = $last_news_arr[0];
-                $arch_url = RWU( 'archread', $PHP_SELF . build_uri('subaction,archive', array('list-archive', $arch_file)) );
-                echo "<a href=\"$arch_url&$user_query\">".date("d M Y",$first_timestamp) ." - ". date("d M Y",$last_timestamp).", (<b>$count</b>)</a><br />";
+                echo "<a href=\"$PHP_SELF?archive=$arch_file&subaction=list-archive&$user_query\">".date("d M Y",$first_timestamp) ." - ". date("d M Y",$last_timestamp).", (<b>$count</b>)</a><br />";
             }
         }
     }
