@@ -153,7 +153,6 @@ table.std-table td, table.std-table th {
     border: 1px solid #eeeeee;
 }
 
-.consys_sub { font-size: 16px; font-weight: bold; background: #FFF0C0; padding: 2px 4px; margin: 10px 0 0 0; }
 .left { text-align: left; }
 .cn { text-align: center; }
 .right { text-align: right; }
