@@ -5,7 +5,6 @@
     <input type="hidden" name="ucat" value="{$ucat}" />
     <input type="hidden" name="show" value="{$show}" />
     {$user_post_query}
-    {$captcha_form}
     </div>
 </form>
 {$remember_js}
