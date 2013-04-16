@@ -13,6 +13,7 @@ $skin_menu = <<<HTML
             <td><a class="nav" href="$PHP_SELF?mod=addnews&action=addnews" accesskey="a">Add News</a></td><td>|</td>
             <td><a class="nav" href="$PHP_SELF?mod=editnews&action=list">Edit News</a></td><td>|</td>
             <td><a class="nav" href="$PHP_SELF?mod=options&action=options">Options</a></td><td>|</td>
+			<td><a class="nav" href="http://www.pixlr.com/editor/" target="_blank">Edit images</a></td><td>|</td>
             <td><a class="nav" href="$PHP_SELF?mod=about&action=about">Help/About</a></td><td>|</td>
             <td><a class="nav" href="$PHP_SELF?action=logout">Logout</a></td>
         </tr>

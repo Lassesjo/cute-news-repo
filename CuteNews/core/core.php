@@ -727,7 +727,7 @@ function template_replacer_news($news_arr, $output)
     // Open link --------------------------------------------------------------- [link]...[/link]
     $URL     = build_uri('subaction,id,start_from,ucat,archive,template', array('showfull',$news_arr[NEW_ID],$my_start_from,$news_arr[NEW_CAT]));
     $URL    .= "&amp;#disqus_thread";
-    $output  = str_replace(array("[link]", "[/link]"), array('<a href="'.$PHP_SELF.$URL.'">', "</a>"), $output);
+	$output  = str_replace(array("[link]", "[/link]"), array('<a href="'.$PHP_SELF.$URL.'" target=\"main\">', "</a>"), $output); 
 
     // With Action = showheadlines -------------------------------------------- [full-link]...[/full-link]
     if ($news_arr[NEW_FULL] or $action == "showheadlines")
@@ -735,13 +735,13 @@ function template_replacer_news($news_arr, $output)
         if ( $config_full_popup == "yes" )
         {
              $URL = build_uri('subaction,id,archive,template', array('showfull',$news_arr[NEW_ID],$archive,$template));
-             $output = str_replace('[full-link]', "<a href=\"#\" onclick=\"window.open('$config_http_script_dir/router.php{$URL}', '_News', '$config_full_popup_string');return false;\">", $output);
+	$output = str_replace('[full-link]', "<a href=\"#\" onclick=\"window.open('$config_http_script_dir/router.php{$URL}', '_News', '$config_full_popup_string');return false;\" target=\"main\">", $output);
         }
         else
         {
             if ($template == 'Default') $template = false;
             $URL  = RWU( 'readmore', $PHP_SELF . build_uri('subaction,id,archive,start_from,ucat,template', array('showfull',$news_arr[0],$archive,$my_start_from,$news_arr[NEW_CAT],$template)) . "&amp;$user_query" );
-            $output = str_replace("[full-link]", "<a href=\"{$URL}\">", $output);
+	$output = str_replace("[full-link]", "<a href=\"{$URL}\" target=\"main\">",$output);
         }
 
         $output = str_replace("[/full-link]", "</a>", $output);

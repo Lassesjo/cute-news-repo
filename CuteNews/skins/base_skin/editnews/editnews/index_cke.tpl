@@ -149,6 +149,10 @@ function confirmDelete(url)
             language: 'en',
             entities_latin: false,
             entities_greek: false,
+enterMode : CKEDITOR.ENTER_BR,
+shiftEnterMode: CKEDITOR.ENTER_P,
+shiftEnterMode: CKEDITOR.ENTER_DIV,
+
             toolbar: [
                 ['Source','Maximize','Scayt','PasteText','Undo','Redo','Find','Replace','-','SelectAll','RemoveFormat','NumberedList','BulletedList','Outdent','Indent'],
                 ['Image','Table','HorizontalRule','Smiley'],

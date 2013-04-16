@@ -146,8 +146,8 @@
         else $repeat = false;
     }
 
-    // << Previous & Next >>
-    $prev_next_msg = $template_prev_next;
+/* // << Previous & Next >>
+$prev_next_msg = $template_prev_next;
 
     //----------------------------------
     // Previous link
@@ -207,4 +207,4 @@
         $no_next = TRUE;
     }
 
-    if (!$no_prev or !$no_next) echo $prev_next_msg;
+if (!$no_prev or !$no_next) echo $prev_next_msg; */
